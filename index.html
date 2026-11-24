@@ -4,21 +4,21 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Bi Pilav Bi Sandviç — Üsküdar Çarşı</title>
-  <meta name="description" content="Bi Pilav Bi Sandviç: 2019'dan beri Üsküdar Çarşı'da kadınların işlettiği büfe. Pilav, sandviç, tost, gözleme ve kahvaltı.">
+  <meta name="description" content="Bi Pilav Bi Sandviç: 2019'dan beri Üsküdar Çarşı'da kadınların işlettiği büfe. Köfte ekmek, tantuni, tavuklu pilav, menemen, sandviç ve gözleme.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #fffaf2; --paper: #ffffff; --ink: #2d1b12; --muted: #7a6455;
-      --tomato: #d9480f; --saffron: #f4a825; --leaf: #3f8f4a; --rose: #f08c6c;
-      --line: #f4e4cf; --shadow: 0 12px 32px rgba(200, 90, 20, .10);
+      --bg: #fff8f3; --paper: #ffffff; --ink: #1f1a17; --muted: #6e625b;
+      --red: #e0261f; --red-deep: #b0150f; --cream: #fff0e8; --gold: #f2b134;
+      --line: #f3ded3; --shadow: 0 12px 32px rgba(170, 25, 15, .10);
     }
     @media (prefers-color-scheme: dark) {
       :root:not([data-theme="light"]) {
-        --bg: #1a120d; --paper: #251912; --ink: #fbefe3; --muted: #cdb4a0;
-        --tomato: #ff7a3d; --saffron: #ffc145; --leaf: #74c27f; --rose: #ff9f80;
-        --line: #3a271c; --shadow: 0 12px 32px rgba(0, 0, 0, .40);
+        --bg: #151112; --paper: #201a1b; --ink: #f8eeea; --muted: #c4b3ad;
+        --red: #ff4d45; --red-deep: #e0261f; --cream: #2a1f20; --gold: #ffc145;
+        --line: #3a2c2d; --shadow: 0 12px 32px rgba(0, 0, 0, .45);
       }
     }
     * { box-sizing: border-box; }
@@ -26,123 +26,165 @@
     body { margin: 0; background: var(--bg); color: var(--ink);
       font: 17px/1.65 Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
     h1, h2, h3 { font-family: Fraunces, Georgia, serif; line-height: 1.1; margin: 0; }
-    a { color: var(--tomato); }
-    .wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+    a { color: var(--red); }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
 
-    /* nav */
-    nav { display: flex; justify-content: space-between; align-items: center; padding: 18px 0; }
-    .logo { font-family: Fraunces, serif; font-weight: 800; font-size: 1.25rem; text-decoration: none; color: var(--ink); }
-    .logo span { color: var(--tomato); }
-    .nav-links { display: flex; gap: 20px; font-weight: 500; }
-    .nav-links a { color: var(--ink); text-decoration: none; }
-    @media (max-width: 560px) { .nav-links { display: none; } }
+    /* top bar like the shop sign */
+    .topbar { background: #141010; color: #fff; }
+    .topbar .wrap { display: flex; justify-content: space-between; align-items: center; padding: 14px 16px; }
+    .logo { font-family: Pacifico, cursive; font-size: 1.45rem; text-decoration: none; color: #fff; white-space: nowrap; }
+    .logo span { color: #ff3b34; }
+    .nav-links { display: flex; gap: 22px; font-weight: 600; }
+    .nav-links a { color: #fff; text-decoration: none; opacity: .9; }
+    .nav-links a:hover { opacity: 1; color: #ff6b65; }
+    .awning { height: 18px; background: repeating-linear-gradient(90deg, var(--red) 0 36px, #fff 36px 72px); }
+    .awning-scallop { height: 14px; background:
+      radial-gradient(circle at 18px 0, var(--red) 17px, transparent 18px) 0 0 / 72px 14px repeat-x,
+      radial-gradient(circle at 54px 0, #fff 17px, transparent 18px) 0 0 / 72px 14px repeat-x; }
+    @media (max-width: 560px) { .nav-links { gap: 14px; font-size: .9rem; } .logo { font-size: 1.15rem; } }
 
     /* hero */
-    .hero { display: grid; grid-template-columns: 1.1fr .9fr; gap: 32px; align-items: center; padding: 32px 0 56px; }
+    .hero { display: grid; grid-template-columns: 1fr 1.05fr; gap: 36px; align-items: center; padding: 44px 0 60px; }
     .badge { display: inline-flex; align-items: center; gap: 8px; background: var(--paper); border: 1px solid var(--line);
-      padding: 6px 14px; border-radius: 999px; font-size: .9rem; font-weight: 600; color: var(--tomato); box-shadow: var(--shadow); }
-    .hero h1 { font-size: clamp(2.4rem, 6vw, 4rem); margin: 18px 0 14px; }
-    .hero h1 em { font-style: normal; color: var(--tomato); }
-    .hero p { color: var(--muted); font-size: 1.12rem; margin: 0 0 26px; max-width: 34ch; }
+      padding: 6px 14px; border-radius: 999px; font-size: .9rem; font-weight: 700; color: var(--red); box-shadow: var(--shadow); }
+    .hero h1 { font-size: clamp(2.4rem, 6vw, 3.9rem); margin: 18px 0 14px; }
+    .hero h1 em { font-style: normal; color: var(--red); }
+    .hero p { color: var(--muted); font-size: 1.12rem; margin: 0 0 26px; max-width: 36ch; }
     .cta { display: flex; flex-wrap: wrap; gap: 12px; }
-    .btn { display: inline-block; padding: 12px 22px; border-radius: 999px; font-weight: 600; text-decoration: none; }
-    .btn.primary { background: var(--tomato); color: #fff; }
+    .btn { display: inline-block; padding: 12px 22px; border-radius: 999px; font-weight: 700; text-decoration: none; }
+    .btn.primary { background: var(--red); color: #fff; box-shadow: 0 8px 18px rgba(224, 38, 31, .3); }
     .btn.ghost { border: 2px solid var(--ink); color: var(--ink); }
-    .hero-art { background: radial-gradient(circle at 50% 55%, color-mix(in srgb, var(--saffron) 35%, transparent), transparent 65%); border-radius: 50%; width: 100%; height: auto; filter: drop-shadow(0 18px 30px rgba(120, 60, 20, .18)); }
-    @media (max-width: 760px) { .hero { grid-template-columns: 1fr; padding-top: 8px; } .hero-art { max-width: 360px; margin: 0 auto; display: block; } }
+    .shop { width: 100%; height: auto; filter: drop-shadow(0 22px 34px rgba(60, 10, 10, .22)); }
+    @media (max-width: 800px) { .hero { grid-template-columns: 1fr; padding-top: 24px; } .shop { max-width: 520px; display: block; margin: 0 auto; } }
 
     /* sections */
-    section { padding: 56px 0; }
-    .eyebrow { color: var(--tomato); font-weight: 600; letter-spacing: .08em; text-transform: uppercase; font-size: .8rem; }
-    section h2 { font-size: clamp(1.8rem, 4vw, 2.4rem); margin: 8px 0 14px; }
-    .lead { color: var(--muted); max-width: 60ch; margin: 0; }
+    section { padding: 60px 0; }
+    .eyebrow { color: var(--red); font-weight: 700; letter-spacing: .1em; text-transform: uppercase; font-size: .8rem; }
+    section h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); margin: 8px 0 14px; }
+    .lead { color: var(--muted); max-width: 62ch; margin: 0; }
 
     /* women-run */
-    .women { background: var(--paper); border: 1px solid var(--line); border-radius: 28px; padding: 40px;
-      display: grid; grid-template-columns: auto 1fr; gap: 32px; align-items: center; box-shadow: var(--shadow); }
-    .women svg { width: 140px; height: 140px; }
+    .women { background: var(--cream); border-radius: 28px; padding: 40px;
+      display: grid; grid-template-columns: auto 1fr; gap: 34px; align-items: center; }
+    .women svg { width: 170px; height: 170px; }
     .women p { margin: 0 0 12px; }
     @media (max-width: 640px) { .women { grid-template-columns: 1fr; padding: 28px 22px; text-align: center; } .women svg { margin: 0 auto; } }
 
     /* menu */
-    .menu { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 16px; margin-top: 28px; }
-    .dish { background: var(--paper); border: 1px solid var(--line); border-radius: 20px; padding: 22px 18px; text-align: center; box-shadow: var(--shadow); }
-    .dish svg { width: 84px; height: 84px; }
-    .dish h3 { font-size: 1.2rem; margin: 10px 0 4px; }
-    .dish p { margin: 0; color: var(--muted); font-size: .95rem; }
+    .menu-board { background: var(--red); border-radius: 30px; padding: 28px; margin-top: 30px;
+      background-image: radial-gradient(rgba(255,255,255,.08) 1.5px, transparent 1.5px); background-size: 14px 14px; }
+    .menu { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; }
+    .dish { background: #fff; color: #1f1a17; border-radius: 20px; padding: 16px; display: flex; gap: 14px; align-items: center;
+      box-shadow: 0 6px 16px rgba(80, 0, 0, .18); transition: transform .15s ease; }
+    .dish:hover { transform: translateY(-3px); }
+    .dish svg { width: 72px; height: 72px; flex: none; border-radius: 16px; background: #fff3ec; padding: 6px; }
+    .dish h3 { font-size: 1.15rem; margin: 0 0 2px; }
+    .dish p { margin: 0; color: #6e625b; font-size: .92rem; line-height: 1.45; }
+    .dish.star { outline: 3px solid var(--gold); }
+    .board-title { font-family: Pacifico, cursive; color: #fff; font-size: clamp(1.6rem, 4vw, 2.2rem); text-align: center; margin: 22px 0 0; }
+    .menu-note { margin-top: 18px; color: var(--muted); font-size: .95rem; }
 
     /* visit */
-    .visit { display: grid; grid-template-columns: 1fr 1.2fr; gap: 24px; margin-top: 28px; }
-    .card { background: var(--paper); border: 1px solid var(--line); border-radius: 20px; padding: 26px; box-shadow: var(--shadow); }
-    .card dl { margin: 0; }
-    .card dt { font-size: .8rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin-top: 14px; }
+    .visit { display: grid; grid-template-columns: 1fr 1.25fr; gap: 24px; margin-top: 30px; }
+    .card { background: var(--paper); border: 1px solid var(--line); border-radius: 22px; padding: 26px; box-shadow: var(--shadow); }
+    .card dt { font-size: .78rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-top: 16px; }
     .card dt:first-child { margin-top: 0; }
-    .card dd { margin: 2px 0 0; font-weight: 500; }
-    .map { border-radius: 20px; overflow: hidden; border: 1px solid var(--line); min-height: 320px; box-shadow: var(--shadow); }
-    .map iframe { width: 100%; height: 100%; min-height: 320px; border: 0; display: block; }
-    @media (max-width: 760px) { .visit { grid-template-columns: 1fr; } }
+    .card dd { margin: 2px 0 0; font-weight: 600; }
+    .card dl { margin: 0; }
+    .map { border-radius: 22px; overflow: hidden; border: 1px solid var(--line); min-height: 340px; box-shadow: var(--shadow); }
+    .map iframe { width: 100%; height: 100%; min-height: 340px; border: 0; display: block; }
+    @media (max-width: 760px) { .visit { grid-template-columns: 1fr; } .menu-board { padding: 18px; } }
 
-    footer { border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--muted); font-size: .9rem; }
-    footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
+    footer { background: #141010; color: #d8cfcb; padding: 26px 0 34px; font-size: .9rem; margin-top: 20px; }
+    footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; }
+    footer .logo { font-size: 1.1rem; }
   </style>
 </head>
 <body>
-<div class="wrap">
-  <nav>
+
+<div class="topbar">
+  <div class="wrap">
     <a class="logo" href="#">Bi Pilav <span>Bi Sandviç</span></a>
-    <div class="nav-links">
+    <nav class="nav-links">
       <a href="#biz">Biz</a>
       <a href="#menu">Menü</a>
       <a href="#iletisim">İletişim</a>
-    </div>
-  </nav>
+    </nav>
+  </div>
+</div>
+<div class="awning"></div>
+<div class="awning-scallop"></div>
 
+<div class="wrap">
   <header class="hero">
     <div>
       <span class="badge">♀ Kadın işletmesi · 2019'dan beri</span>
       <h1>Üsküdar Çarşı'nın <em>sıcacık</em> durağı</h1>
-      <p>Her sabah taze pilav, sandviç, tost, gözleme ve kahvaltı. Kadın eliyle, ev sıcaklığında.</p>
+      <p>Köfte ekmek, tantuni, tavuklu pilav, menemen, sandviç ve gözleme. Kadın eliyle, ev sıcaklığında; çarşının tam ortasında.</p>
       <div class="cta">
         <a class="btn primary" href="tel:+905466964105">Bizi arayın</a>
         <a class="btn ghost" href="#iletisim">Yol tarifi</a>
       </div>
     </div>
 
-    <!-- illustration: bowl of rice + sandwich -->
-    <svg class="hero-art" viewBox="0 0 400 340" role="img" aria-label="Bir kase pilav ve bir sandviç">
-      <ellipse cx="200" cy="300" rx="170" ry="22" fill="#000" opacity=".08"/>
-      <!-- sandwich -->
-      <g transform="translate(205 120) rotate(8)">
-        <path d="M10 70 Q90 20 175 60 L170 82 Q90 50 14 92 Z" fill="#e7b46a"/>
-        <path d="M14 92 Q90 50 170 82 L172 96 Q92 66 16 108 Z" fill="#6cae5e"/>
-        <path d="M16 108 Q92 66 172 96 L170 110 Q92 84 18 122 Z" fill="#e3503a"/>
-        <path d="M18 122 Q92 84 170 110 L168 122 Q92 98 20 134 Z" fill="#f4d06a"/>
-        <path d="M20 134 Q92 98 168 122 L166 146 Q92 118 22 160 Z" fill="#d9a258"/>
-        <circle cx="60" cy="68" r="3" fill="#fff6e0"/><circle cx="95" cy="52" r="3" fill="#fff6e0"/><circle cx="130" cy="55" r="3" fill="#fff6e0"/>
+    <!-- illustration of the shop front -->
+    <svg class="shop" viewBox="0 0 520 440" role="img" aria-label="Bi Pilav Bi Sandviç dükkânının çizimi: siyah tabela, kırmızı tente ve camekân">
+      <defs>
+        <clipPath id="glass"><rect x="214" y="190" width="262" height="196" rx="6"/></clipPath>
+      </defs>
+      <!-- building -->
+      <rect x="20" y="10" width="480" height="400" rx="10" fill="#efe4d8"/>
+      <g fill="#cfe0ea" stroke="#b9a999" stroke-width="4">
+        <rect x="60" y="36" width="90" height="56" rx="4"/><rect x="215" y="36" width="90" height="56" rx="4"/><rect x="370" y="36" width="90" height="56" rx="4"/>
       </g>
-      <!-- bowl -->
-      <path d="M30 175 Q30 290 155 290 Q280 290 280 175 Z" fill="#e0562a"/>
-      <path d="M30 175 Q30 200 40 215 L270 215 Q280 200 280 175 Z" fill="#c2410c"/>
-      <path d="M70 240 h170" stroke="#f2b134" stroke-width="6" stroke-linecap="round" opacity=".8"/>
-      <!-- rice mound -->
-      <path d="M38 178 Q60 110 155 104 Q250 110 272 178 Z" fill="#fffaf0"/>
-      <g fill="#f1e6cf">
-        <ellipse cx="90" cy="160" rx="7" ry="3.5" transform="rotate(-20 90 160)"/>
-        <ellipse cx="120" cy="140" rx="7" ry="3.5" transform="rotate(15 120 140)"/>
-        <ellipse cx="160" cy="128" rx="7" ry="3.5" transform="rotate(-10 160 128)"/>
-        <ellipse cx="200" cy="145" rx="7" ry="3.5" transform="rotate(25 200 145)"/>
-        <ellipse cx="235" cy="165" rx="7" ry="3.5" transform="rotate(-15 235 165)"/>
-        <ellipse cx="140" cy="165" rx="7" ry="3.5" transform="rotate(5 140 165)"/>
-        <ellipse cx="185" cy="170" rx="7" ry="3.5" transform="rotate(-25 185 170)"/>
+      <!-- sign -->
+      <rect x="30" y="104" width="460" height="64" rx="6" fill="#141010"/>
+      <text x="260" y="148" text-anchor="middle" font-family="Pacifico, cursive" font-size="34" fill="#ffffff">Bi <tspan fill="#ff3b34">Pilav</tspan> Bi <tspan fill="#ff3b34">Sandviç</tspan></text>
+      <!-- awning -->
+      <path d="M34 168 H486 L470 196 H50 Z" fill="#e0261f"/>
+      <g fill="#ffffff" opacity=".9">
+        <path d="M86 168 h30 l-4 28 h-30 z"/><path d="M176 168 h30 l-3 28 h-30 z"/><path d="M266 168 h30 l-2 28 h-30 z"/><path d="M356 168 h30 l-1 28 h-30 z"/><path d="M446 168 h30 l-6 28 h-26 z"/>
       </g>
-      <!-- chickpeas -->
-      <g fill="#f2b134"><circle cx="110" cy="152" r="6"/><circle cx="172" cy="150" r="6"/><circle cx="215" cy="160" r="6"/><circle cx="150" cy="118" r="6"/></g>
-      <!-- steam -->
-      <g fill="none" stroke="#c9b8a8" stroke-width="5" stroke-linecap="round" opacity=".7">
-        <path d="M120 90 q-12 -18 0 -36 q12 -18 0 -36"/>
-        <path d="M160 82 q-12 -18 0 -36 q12 -18 0 -36"/>
-        <path d="M200 90 q-12 -18 0 -36 q12 -18 0 -36"/>
+      <!-- door -->
+      <rect x="44" y="196" width="150" height="200" fill="#2b2222"/>
+      <rect x="56" y="208" width="126" height="188" fill="#3c3030"/>
+      <g fill="#f6d36b"><circle cx="90" cy="232" r="4"/><circle cx="130" cy="232" r="4"/><circle cx="170" cy="232" r="4"/></g>
+      <rect x="84" y="320" width="70" height="8" rx="3" fill="#8a5a3a"/>
+      <rect x="114" y="328" width="8" height="40" fill="#8a5a3a"/>
+      <!-- red pillar -->
+      <rect x="194" y="196" width="20" height="200" fill="#e0261f"/>
+      <!-- shop window -->
+      <rect x="214" y="190" width="262" height="196" rx="6" fill="#fff7ee"/>
+      <g clip-path="url(#glass)" font-family="Inter" font-weight="700" font-size="8" fill="#b0150f" text-anchor="middle">
+        <rect x="226" y="204" width="70" height="56" rx="8" fill="#fff" stroke="#f3ded3"/>
+        <path d="M234 244 Q261 226 288 240 L286 250 Q261 236 236 254 Z" fill="#e7b46a"/><path d="M240 242 Q261 232 282 240" stroke="#8a4a2a" stroke-width="5" fill="none"/>
+        <text x="261" y="216">KÖFTE EKMEK</text>
+        <rect x="304" y="204" width="70" height="56" rx="8" fill="#fff" stroke="#f3ded3"/>
+        <circle cx="339" cy="242" r="16" fill="#2b2222"/><circle cx="339" cy="242" r="12" fill="#e2552c"/><circle cx="334" cy="238" r="4" fill="#fff3c4"/>
+        <text x="339" y="216">MENEMEN</text>
+        <rect x="382" y="204" width="80" height="56" rx="8" fill="#fff" stroke="#f3ded3"/>
+        <ellipse cx="422" cy="244" rx="26" ry="10" fill="#fffaf0" stroke="#efe2c8"/><g fill="#f2b134"><circle cx="414" cy="240" r="3"/><circle cx="426" cy="238" r="3"/><circle cx="432" cy="245" r="3"/></g>
+        <text x="422" y="216">TAVUKLU PİLAV</text>
+        <!-- counter with juice machine -->
+        <rect x="226" y="270" width="120" height="58" rx="6" fill="#e9eef2" stroke="#cdd6dd"/>
+        <rect x="244" y="276" width="34" height="46" rx="5" fill="#f2b134" opacity=".9"/>
+        <rect x="290" y="276" width="34" height="46" rx="5" fill="#e0261f" opacity=".75"/>
+        <rect x="352" y="270" width="112" height="58" rx="6" fill="#fff" stroke="#f3ded3"/>
+        <g fill="#e7b46a"><ellipse cx="376" cy="300" rx="14" ry="8"/><ellipse cx="408" cy="300" rx="14" ry="8"/><ellipse cx="440" cy="300" rx="14" ry="8"/></g>
+        <rect x="226" y="336" width="74" height="44" rx="8" fill="#fff" stroke="#f3ded3"/>
+        <path d="M236 370 Q263 352 290 366" stroke="#e7b46a" stroke-width="12" fill="none" stroke-linecap="round"/><text x="263" y="348">TANTUNİ</text>
+        <rect x="306" y="336" width="74" height="44" rx="8" fill="#fff" stroke="#f3ded3"/>
+        <rect x="318" y="356" width="50" height="18" rx="4" fill="#e7b46a"/><text x="343" y="348">SANDVİÇ</text>
+        <rect x="386" y="336" width="78" height="44" rx="8" fill="#fff" stroke="#f3ded3"/>
+        <path d="M398 374 L402 356 L448 356 L444 374 Z" fill="#f3c27a"/><text x="425" y="348">GÖZLEME</text>
       </g>
+      <!-- sidewalk -->
+      <rect x="0" y="396" width="520" height="40" rx="6" fill="#d9d2cb"/>
+      <g stroke="#c4bbb3" stroke-width="3"><path d="M60 396 v40"/><path d="M160 396 v40"/><path d="M260 396 v40"/><path d="M360 396 v40"/><path d="M460 396 v40"/></g>
+      <!-- stool with tea -->
+      <rect x="150" y="372" width="40" height="8" rx="3" fill="#f4f4f4" stroke="#cfcfcf"/>
+      <path d="M154 380 l-4 18 M186 380 l4 18" stroke="#cfcfcf" stroke-width="4"/>
+      <path d="M164 356 q-2 8 2 16 h8 q4 -8 2 -16 z" fill="#b5401a" stroke="#fff" stroke-width="1.5"/>
     </svg>
   </header>
 </div>
@@ -150,113 +192,134 @@
 <div class="wrap">
   <section id="biz">
     <div class="women">
-      <!-- illustration: two women -->
-      <svg viewBox="0 0 140 140" role="img" aria-label="Kadın işletmesi">
-        <circle cx="70" cy="70" r="68" fill="#fde3d6"/>
-        <circle cx="50" cy="56" r="16" fill="#8a5a44"/>
-        <path d="M30 50 Q50 24 70 50 Q66 34 50 32 Q34 34 30 50 Z" fill="#3b2418"/>
-        <path d="M18 118 Q22 82 50 80 Q78 82 82 118 Z" fill="#d4472b"/>
-        <circle cx="92" cy="60" r="16" fill="#c98c6a"/>
-        <path d="M74 60 Q72 34 92 34 Q112 34 110 60 Q108 46 92 44 Q78 46 74 60 Z" fill="#6b3b22"/>
-        <path d="M62 120 Q66 86 92 84 Q120 86 124 120 Z" fill="#f2b134"/>
-        <path d="M70 102 l4 -6 4 6 -4 4 z" fill="#fff"/>
+      <svg viewBox="0 0 170 170" role="img" aria-label="Tezgâhta çalışan iki kadın">
+        <circle cx="85" cy="85" r="82" fill="#ffd9d4"/>
+        <circle cx="60" cy="72" r="18" fill="#e0a782"/>
+        <path d="M38 76 Q36 46 60 44 Q84 46 82 76 Q80 58 60 56 Q40 58 38 76 Z" fill="#e0261f"/>
+        <path d="M38 76 Q44 94 60 94 Q76 94 82 76 L84 88 Q72 104 60 104 Q48 104 36 88 Z" fill="#e0261f"/>
+        <path d="M24 150 Q28 104 60 102 Q92 104 96 150 Z" fill="#141010"/>
+        <rect x="46" y="112" width="28" height="34" rx="4" fill="#fff"/>
+        <circle cx="112" cy="70" r="17" fill="#c98c6a"/>
+        <path d="M94 70 Q92 44 112 44 Q132 44 130 70 Q128 54 112 53 Q98 54 94 70 Z" fill="#3b2418"/>
+        <path d="M128 64 Q140 80 132 98" stroke="#3b2418" stroke-width="7" fill="none" stroke-linecap="round"/>
+        <path d="M80 150 Q84 100 112 98 Q142 100 146 150 Z" fill="#f2b134"/>
+        <rect x="14" y="136" width="142" height="20" rx="6" fill="#ffffff" stroke="#f3ded3" stroke-width="2"/>
+        <circle cx="128" cy="130" r="8" fill="#fffaf0" stroke="#efe2c8"/>
       </svg>
       <div>
         <span class="eyebrow">Hakkımızda</span>
-        <h2>Kadınların işlettiği bir mahalle büfesi</h2>
+        <h2>Kadınların işlettiği bir çarşı büfesi</h2>
         <p>Bi Pilav Bi Sandviç, 2019'dan beri Üsküdar Çarşı'da, Mimar Sinan Mahallesi'nde hizmet veriyor.
           İşletmemizi kadınlar kuruyor, kadınlar yürütüyor; mutfakta da tezgâhta da.</p>
-        <p class="lead">Çarşıya alışverişe gelenlerin, işe yetişenlerin ve okul çıkışı uğrayanların hızlı ama özenli durağıyız.
+        <p class="lead">Çarşıya alışverişe gelenlerin, işe yetişenlerin ve okul çıkışı uğrayanların durağıyız.
           Pilavımız her sabah yeniden pişer, sandviçlerimiz siparişle hazırlanır.</p>
       </div>
     </div>
   </section>
 
   <section id="menu">
-    <span class="eyebrow">Neler var?</span>
-    <h2>Tezgâhımızdan</h2>
-    <p class="lead">Menü gün içinde değişebilir; günün lezzetleri için uğrayın ya da arayın.</p>
+    <span class="eyebrow">Ne yesek?</span>
+    <h2>Menü</h2>
+    <p class="lead">Günün lezzetleri değişebilir; uğrayın ya da arayın, ne pişti söyleyelim.</p>
 
-    <div class="menu">
-      <div class="dish">
-        <svg viewBox="0 0 84 84" aria-hidden="true">
-          <path d="M8 40 Q8 74 42 74 Q76 74 76 40 Z" fill="#d4472b"/>
-          <path d="M10 42 Q20 20 42 18 Q64 20 74 42 Z" fill="#fffaf0" stroke="#efe2c8"/>
-          <g fill="#f2b134"><circle cx="30" cy="34" r="3.5"/><circle cx="48" cy="30" r="3.5"/><circle cx="56" cy="38" r="3.5"/></g>
-        </svg>
-        <h3>Pilav</h3>
-        <p>Her sabah taze pişer</p>
+    <div class="menu-board">
+      <div class="menu">
+        <div class="dish">
+          <svg viewBox="0 0 84 84" aria-hidden="true">
+            <path d="M6 46 Q10 26 42 24 Q74 26 78 46 Q74 60 42 60 Q10 60 6 46 Z" fill="#e3a85c"/>
+            <path d="M12 44 Q42 34 72 44" stroke="#7a3f1f" stroke-width="9" fill="none" stroke-linecap="round"/>
+            <path d="M14 48 Q42 40 70 48" stroke="#6cae5e" stroke-width="4" fill="none"/>
+            <g fill="#e3503a"><circle cx="26" cy="44" r="3"/><circle cx="46" cy="41" r="3"/><circle cx="62" cy="44" r="3"/></g>
+          </svg>
+          <div><h3>Köfte ekmek</h3><p>Izgara köfte, domates, yeşillik</p></div>
+        </div>
+        <div class="dish">
+          <svg viewBox="0 0 84 84" aria-hidden="true">
+            <ellipse cx="42" cy="58" rx="36" ry="12" fill="#fff" stroke="#efe2c8" stroke-width="2"/>
+            <path d="M10 48 Q16 28 42 26 Q68 28 74 48 Q68 56 42 56 Q16 56 10 48 Z" fill="#e3a85c"/>
+            <path d="M16 44 Q42 34 68 44" stroke="#8a4a2a" stroke-width="7" fill="none" stroke-linecap="round" stroke-dasharray="3 3"/>
+            <path d="M22 40 l6 -6 M40 36 l4 -7 M56 38 l5 -6" stroke="#3f8f4a" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="70" cy="60" r="6" fill="#f2d14b"/>
+          </svg>
+          <div><h3>Tantuni</h3><p>Ekmek arası, limon ve domatesle</p></div>
+        </div>
+        <div class="dish star">
+          <svg viewBox="0 0 84 84" aria-hidden="true">
+            <ellipse cx="42" cy="58" rx="36" ry="12" fill="#fff" stroke="#efe2c8" stroke-width="2"/>
+            <path d="M12 56 Q20 24 42 22 Q64 24 72 56 Z" fill="#fffaf0" stroke="#efe2c8"/>
+            <g stroke="#e8d2b4" stroke-width="3" stroke-linecap="round"><path d="M24 40 l12 4"/><path d="M42 30 l10 8"/><path d="M50 46 l12 -2"/></g>
+            <g fill="#f2b134"><circle cx="32" cy="34" r="4"/><circle cx="46" cy="28" r="4"/><circle cx="56" cy="38" r="4"/><circle cx="38" cy="46" r="3.5"/></g>
+          </svg>
+          <div><h3>Tavuklu pilav</h3><p>Nohutlu, tavuk didikli, her sabah taze</p></div>
+        </div>
+        <div class="dish">
+          <svg viewBox="0 0 84 84" aria-hidden="true">
+            <path d="M60 46 L80 40" stroke="#2b2222" stroke-width="6" stroke-linecap="round"/>
+            <circle cx="38" cy="46" r="28" fill="#2b2222"/>
+            <circle cx="38" cy="46" r="23" fill="#e2552c"/>
+            <g fill="#fff3c4"><circle cx="30" cy="40" r="6"/><circle cx="46" cy="50" r="5"/></g>
+            <g fill="#f2b134"><circle cx="30" cy="40" r="2.5"/><circle cx="46" cy="50" r="2"/></g>
+            <g fill="#3f8f4a"><rect x="40" y="34" width="8" height="3" rx="1.5"/><rect x="24" y="54" width="8" height="3" rx="1.5"/></g>
+          </svg>
+          <div><h3>Menemen</h3><p>Sahanda, sıcak ekmekle</p></div>
+        </div>
+        <div class="dish">
+          <svg viewBox="0 0 84 84" aria-hidden="true">
+            <path d="M8 34 Q42 14 76 32 L74 40 Q42 24 10 42 Z" fill="#e7b46a"/>
+            <path d="M10 42 Q42 24 74 40 L74 46 Q42 32 10 50 Z" fill="#6cae5e"/>
+            <path d="M10 50 Q42 32 74 46 L74 52 Q42 40 10 56 Z" fill="#e3503a"/>
+            <path d="M10 56 Q42 40 74 52 L74 56 Q42 46 10 60 Z" fill="#fff6dc"/>
+            <path d="M10 60 Q42 46 74 56 L72 64 Q42 54 12 70 Z" fill="#d9a258"/>
+          </svg>
+          <div><h3>Sandviç</h3><p>Siparişle, taze hazırlanır</p></div>
+        </div>
+        <div class="dish">
+          <svg viewBox="0 0 84 84" aria-hidden="true">
+            <rect x="6" y="54" width="72" height="14" rx="7" fill="#b5793f"/>
+            <path d="M12 54 L16 22 L70 22 L66 54 Z" fill="#f3c27a"/>
+            <g stroke="#c98b3e" stroke-width="2.5"><path d="M34 22 L32 54"/><path d="M52 22 L50 54"/><path d="M14 38 H68"/></g>
+            <g fill="#b5651d" opacity=".55"><circle cx="24" cy="30" r="3"/><circle cx="42" cy="46" r="3"/><circle cx="60" cy="30" r="3"/></g>
+            <path d="M64 18 q8 4 10 12" stroke="#e3503a" stroke-width="6" fill="none" stroke-linecap="round"/>
+          </svg>
+          <div><h3>Gözleme</h3><p>Sıcak sıcak, tahta üstünde</p></div>
+        </div>
+        <div class="dish">
+          <svg viewBox="0 0 84 84" aria-hidden="true">
+            <rect x="14" y="22" width="56" height="44" rx="8" fill="#d9a258"/>
+            <rect x="18" y="26" width="48" height="36" rx="6" fill="#f0c27a"/>
+            <g stroke="#a86b2c" stroke-width="3" stroke-linecap="round"><path d="M24 34 h36"/><path d="M24 44 h36"/><path d="M24 54 h36"/></g>
+          </svg>
+          <div><h3>Tost</h3><p>Sıcak ve çıtır</p></div>
+        </div>
+        <div class="dish">
+          <svg viewBox="0 0 84 84" aria-hidden="true">
+            <path d="M10 38 Q42 84 74 38 Z" fill="#e0261f"/>
+            <ellipse cx="42" cy="38" rx="32" ry="8" fill="#f29a3a"/>
+            <path d="M30 26 q-4 -8 0 -14 M44 24 q-4 -8 0 -14" stroke="#d8c9bd" stroke-width="3" fill="none" stroke-linecap="round"/>
+          </svg>
+          <div><h3>Çorba</h3><p>Günün çorbası</p></div>
+        </div>
+        <div class="dish">
+          <svg viewBox="0 0 84 84" aria-hidden="true">
+            <ellipse cx="28" cy="70" rx="20" ry="5" fill="#e0261f"/>
+            <path d="M18 26 Q14 44 20 54 Q22 66 28 66 Q34 66 36 54 Q42 44 38 26 Z" fill="#fde7d6" stroke="#e6cbb3" stroke-width="2"/>
+            <path d="M19 36 Q17 46 21 54 Q23 64 28 64 Q33 64 35 54 Q39 46 37 36 Z" fill="#b5401a"/>
+            <path d="M48 52 h30 l-4 14 h-22 Z" fill="#fff" stroke="#e6cbb3" stroke-width="2"/>
+            <ellipse cx="63" cy="52" rx="15" ry="3.5" fill="#5a3418"/>
+            <ellipse cx="63" cy="68" rx="20" ry="4" fill="#fff" stroke="#e6cbb3" stroke-width="2"/>
+          </svg>
+          <div><h3>Çay &amp; Türk kahvesi</h3><p>İnce belli bardakta çay, köpüklü kahve</p></div>
+        </div>
       </div>
-      <div class="dish">
-        <svg viewBox="0 0 84 84" aria-hidden="true">
-          <path d="M8 34 Q42 14 76 32 L74 40 Q42 24 10 42 Z" fill="#e7b46a"/>
-          <path d="M10 42 Q42 24 74 40 L74 46 Q42 32 10 50 Z" fill="#6cae5e"/>
-          <path d="M10 50 Q42 32 74 46 L74 52 Q42 40 10 56 Z" fill="#e3503a"/>
-          <path d="M10 56 Q42 40 74 52 L72 62 Q42 50 12 68 Z" fill="#d9a258"/>
-        </svg>
-        <h3>Sandviç</h3>
-        <p>Siparişle hazırlanır</p>
-      </div>
-      <div class="dish">
-        <svg viewBox="0 0 84 84" aria-hidden="true">
-          <rect x="14" y="22" width="56" height="44" rx="8" fill="#d9a258"/>
-          <rect x="18" y="26" width="48" height="36" rx="6" fill="#f0c27a"/>
-          <g stroke="#a86b2c" stroke-width="3" stroke-linecap="round"><path d="M24 34 l36 0"/><path d="M24 44 l36 0"/><path d="M24 54 l36 0"/></g>
-          <path d="M66 46 q6 2 6 8" stroke="#f2b134" stroke-width="4" fill="none" stroke-linecap="round"/>
-        </svg>
-        <h3>Tost</h3>
-        <p>Sıcak ve çıtır</p>
-      </div>
-      <div class="dish">
-        <svg viewBox="0 0 84 84" aria-hidden="true">
-          <path d="M10 56 Q12 22 42 20 Q72 22 74 56 Q42 68 10 56 Z" fill="#f3d39a"/>
-          <g fill="#c98b3e" opacity=".6"><circle cx="30" cy="40" r="4"/><circle cx="50" cy="34" r="3"/><circle cx="58" cy="48" r="4"/><circle cx="38" cy="52" r="3"/></g>
-          <path d="M10 56 Q42 68 74 56" stroke="#c98b3e" stroke-width="3" fill="none"/>
-        </svg>
-        <h3>Gözleme</h3>
-        <p>Sıcak sıcak, tavadan</p>
-      </div>
-      <div class="dish">
-        <svg viewBox="0 0 84 84" aria-hidden="true">
-          <circle cx="42" cy="44" r="32" fill="#fff" stroke="#efe2c8" stroke-width="3"/>
-          <circle cx="34" cy="40" r="10" fill="#fffaf0" stroke="#efe2c8"/><circle cx="34" cy="40" r="5" fill="#f2b134"/>
-          <circle cx="54" cy="36" r="5" fill="#3b2418"/><circle cx="58" cy="48" r="5" fill="#4f8a4b"/>
-          <path d="M30 56 h22" stroke="#e3503a" stroke-width="6" stroke-linecap="round"/>
-        </svg>
-        <h3>Kahvaltı</h3>
-        <p>Sabah 07:00'den itibaren</p>
-      </div>
-      <div class="dish">
-        <svg viewBox="0 0 84 84" aria-hidden="true">
-          <path d="M60 46 L80 40" stroke="#2d1b12" stroke-width="6" stroke-linecap="round"/>
-          <circle cx="38" cy="46" r="28" fill="#2d1b12"/>
-          <circle cx="38" cy="46" r="23" fill="#e2552c"/>
-          <g fill="#fff3c4"><circle cx="30" cy="40" r="6"/><circle cx="46" cy="50" r="5"/></g>
-          <g fill="#f4a825"><circle cx="30" cy="40" r="2.5"/><circle cx="46" cy="50" r="2"/></g>
-          <g fill="#3f8f4a"><rect x="40" y="34" width="8" height="3" rx="1.5"/><rect x="24" y="54" width="8" height="3" rx="1.5"/></g>
-        </svg>
-        <h3>Menemen</h3>
-        <p>Sahanda, sıcak ekmekle</p>
-      </div>
-      <div class="dish">
-        <svg viewBox="0 0 84 84" aria-hidden="true">
-          <ellipse cx="30" cy="70" rx="20" ry="5" fill="#d9480f"/>
-          <path d="M20 26 Q16 44 22 54 Q24 66 30 66 Q36 66 38 54 Q44 44 40 26 Z" fill="#fde7d6" stroke="#e6cbb3" stroke-width="2"/>
-          <path d="M21 36 Q19 46 23 54 Q25 64 30 64 Q35 64 37 54 Q41 46 39 36 Z" fill="#b5401a"/>
-          <path d="M48 52 h30 l-4 14 h-22 Z" fill="#fff" stroke="#e6cbb3" stroke-width="2"/>
-          <ellipse cx="63" cy="52" rx="15" ry="3.5" fill="#5a3418"/>
-          <ellipse cx="63" cy="68" rx="20" ry="4" fill="#fff" stroke="#e6cbb3" stroke-width="2"/>
-        </svg>
-        <h3>Çay &amp; Türk kahvesi</h3>
-        <p>İnce belli bardakta çay, köpüklü kahve</p>
-      </div>
+      <p class="board-title">Bi Pilav, Bi Sandviç</p>
     </div>
+    <p class="menu-note">Fiyatlar ve günün menüsü için: <a href="tel:+905466964105">+90 546 696 41 05</a></p>
   </section>
 
   <section id="iletisim">
     <span class="eyebrow">Bize uğrayın</span>
     <h2>Üsküdar Çarşı'dayız</h2>
-    <p class="lead">Üsküdar Meydanı ve Marmaray'a yürüme mesafesinde, çarşının içinde.</p>
+    <p class="lead">Tembel Hacı Mehmet Sokağı'nda, kırmızı tenteli dükkân.</p>
 
     <div class="visit">
       <div class="card">
@@ -281,8 +344,8 @@
 
 <footer>
   <div class="wrap">
-    <span>© 2019–2026 Bi Pilav Bi Sandviç · Üsküdar Çarşı, İstanbul</span>
-    <span lang="en">Women-run kiosk in Üsküdar, Istanbul — since 2019</span>
+    <span class="logo">Bi Pilav <span>Bi Sandviç</span></span>
+    <span>© 2019–2026 · Üsküdar Çarşı, İstanbul · <span lang="en">Women-run kiosk since 2019</span></span>
   </div>
 </footer>
 </body>

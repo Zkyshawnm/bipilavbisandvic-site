@@ -3,78 +3,263 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Bi Pilav Bi Sandviç — Üsküdar</title>
-  <meta name="description" content="Bi Pilav Bi Sandviç: 2019'dan beri Üsküdar Mimar Sinan Mahallesi'nde pilav, sandviç, tost ve kahvaltı.">
+  <title>Bi Pilav Bi Sandviç — Üsküdar Çarşı</title>
+  <meta name="description" content="Bi Pilav Bi Sandviç: 2019'dan beri Üsküdar Çarşı'da kadınların işlettiği büfe. Pilav, sandviç, tost, gözleme ve kahvaltı.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #fbf7f1; --card: #ffffff; --ink: #2a211b; --muted: #6f6259;
-      --accent: #c8452c; --line: #eadfd3;
+      --bg: #fff8ef; --paper: #ffffff; --ink: #2b1d16; --muted: #7a685c;
+      --tomato: #d4472b; --saffron: #f2b134; --leaf: #4f8a4b; --rose: #e88b8b;
+      --line: #f0e2d2; --shadow: 0 10px 30px rgba(90, 50, 20, .08);
     }
     @media (prefers-color-scheme: dark) {
-      :root { --bg: #1c1714; --card: #261f1b; --ink: #f3ece6; --muted: #b9aca2; --accent: #ef7a5f; --line: #3a302a; }
+      :root:not([data-theme="light"]) {
+        --bg: #1d1511; --paper: #271c17; --ink: #f7ede4; --muted: #c2b0a3;
+        --tomato: #f07154; --saffron: #f5c35b; --leaf: #7fbf79; --rose: #f2a3a3;
+        --line: #3b2c24; --shadow: 0 10px 30px rgba(0, 0, 0, .35);
+      }
     }
     * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body { margin: 0; background: var(--bg); color: var(--ink);
-      font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-    main { max-width: 760px; margin: 0 auto; padding: 48px 16px 64px; }
-    header h1 { font-size: 2.4rem; line-height: 1.15; margin: 0 0 8px; }
-    header p { color: var(--muted); margin: 0; font-size: 1.1rem; }
-    .accent { color: var(--accent); }
-    section { background: var(--card); border: 1px solid var(--line); border-radius: 14px;
-      padding: 22px 24px; margin-top: 24px; }
-    h2 { font-size: 1.2rem; margin: 0 0 12px; }
-    dl { display: grid; grid-template-columns: max-content 1fr; gap: 8px 18px; margin: 0; }
-    dt { color: var(--muted); }
-    dd { margin: 0; }
-    a { color: var(--accent); }
-    ul { margin: 0; padding-left: 20px; }
-    footer { color: var(--muted); font-size: .9rem; margin-top: 32px; text-align: center; }
-    @media (max-width: 480px) { dl { grid-template-columns: 1fr; gap: 2px; } dd { margin-bottom: 10px; } }
+      font: 17px/1.65 Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    h1, h2, h3 { font-family: Fraunces, Georgia, serif; line-height: 1.1; margin: 0; }
+    a { color: var(--tomato); }
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+
+    /* nav */
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 18px 0; }
+    .logo { font-family: Fraunces, serif; font-weight: 800; font-size: 1.25rem; text-decoration: none; color: var(--ink); }
+    .logo span { color: var(--tomato); }
+    .nav-links { display: flex; gap: 20px; font-weight: 500; }
+    .nav-links a { color: var(--ink); text-decoration: none; }
+    @media (max-width: 560px) { .nav-links { display: none; } }
+
+    /* hero */
+    .hero { display: grid; grid-template-columns: 1.1fr .9fr; gap: 32px; align-items: center; padding: 32px 0 56px; }
+    .badge { display: inline-flex; align-items: center; gap: 8px; background: var(--paper); border: 1px solid var(--line);
+      padding: 6px 14px; border-radius: 999px; font-size: .9rem; font-weight: 600; color: var(--tomato); box-shadow: var(--shadow); }
+    .hero h1 { font-size: clamp(2.4rem, 6vw, 4rem); margin: 18px 0 14px; }
+    .hero h1 em { font-style: normal; color: var(--tomato); }
+    .hero p { color: var(--muted); font-size: 1.12rem; margin: 0 0 26px; max-width: 34ch; }
+    .cta { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn { display: inline-block; padding: 12px 22px; border-radius: 999px; font-weight: 600; text-decoration: none; }
+    .btn.primary { background: var(--tomato); color: #fff; }
+    .btn.ghost { border: 2px solid var(--ink); color: var(--ink); }
+    .hero-art { width: 100%; height: auto; filter: drop-shadow(0 18px 30px rgba(120, 60, 20, .18)); }
+    @media (max-width: 760px) { .hero { grid-template-columns: 1fr; padding-top: 8px; } .hero-art { max-width: 360px; margin: 0 auto; display: block; } }
+
+    /* sections */
+    section { padding: 56px 0; }
+    .eyebrow { color: var(--tomato); font-weight: 600; letter-spacing: .08em; text-transform: uppercase; font-size: .8rem; }
+    section h2 { font-size: clamp(1.8rem, 4vw, 2.4rem); margin: 8px 0 14px; }
+    .lead { color: var(--muted); max-width: 60ch; margin: 0; }
+
+    /* women-run */
+    .women { background: var(--paper); border: 1px solid var(--line); border-radius: 28px; padding: 40px;
+      display: grid; grid-template-columns: auto 1fr; gap: 32px; align-items: center; box-shadow: var(--shadow); }
+    .women svg { width: 140px; height: 140px; }
+    .women p { margin: 0 0 12px; }
+    @media (max-width: 640px) { .women { grid-template-columns: 1fr; padding: 28px 22px; text-align: center; } .women svg { margin: 0 auto; } }
+
+    /* menu */
+    .menu { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 16px; margin-top: 28px; }
+    .dish { background: var(--paper); border: 1px solid var(--line); border-radius: 20px; padding: 22px 18px; text-align: center; box-shadow: var(--shadow); }
+    .dish svg { width: 84px; height: 84px; }
+    .dish h3 { font-size: 1.2rem; margin: 10px 0 4px; }
+    .dish p { margin: 0; color: var(--muted); font-size: .95rem; }
+
+    /* visit */
+    .visit { display: grid; grid-template-columns: 1fr 1.2fr; gap: 24px; margin-top: 28px; }
+    .card { background: var(--paper); border: 1px solid var(--line); border-radius: 20px; padding: 26px; box-shadow: var(--shadow); }
+    .card dl { margin: 0; }
+    .card dt { font-size: .8rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin-top: 14px; }
+    .card dt:first-child { margin-top: 0; }
+    .card dd { margin: 2px 0 0; font-weight: 500; }
+    .map { border-radius: 20px; overflow: hidden; border: 1px solid var(--line); min-height: 320px; box-shadow: var(--shadow); }
+    .map iframe { width: 100%; height: 100%; min-height: 320px; border: 0; display: block; }
+    @media (max-width: 760px) { .visit { grid-template-columns: 1fr; } }
+
+    footer { border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--muted); font-size: .9rem; }
+    footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
   </style>
 </head>
 <body>
-<main>
-  <header>
-    <h1>Bi Pilav <span class="accent">Bi Sandviç</span></h1>
-    <p>2019'dan beri Üsküdar'da pilav, sandviç, tost, gözleme ve kahvaltı.</p>
+<div class="wrap">
+  <nav>
+    <a class="logo" href="#">Bi Pilav <span>Bi Sandviç</span></a>
+    <div class="nav-links">
+      <a href="#biz">Biz</a>
+      <a href="#menu">Menü</a>
+      <a href="#iletisim">İletişim</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div>
+      <span class="badge">♀ Kadın işletmesi · 2019'dan beri</span>
+      <h1>Üsküdar Çarşı'nın <em>sıcacık</em> durağı</h1>
+      <p>Her sabah taze pilav, sandviç, tost, gözleme ve kahvaltı. Kadın eliyle, ev sıcaklığında.</p>
+      <div class="cta">
+        <a class="btn primary" href="tel:+905466964105">Bizi arayın</a>
+        <a class="btn ghost" href="#iletisim">Yol tarifi</a>
+      </div>
+    </div>
+
+    <!-- illustration: bowl of rice + sandwich -->
+    <svg class="hero-art" viewBox="0 0 400 340" role="img" aria-label="Bir kase pilav ve bir sandviç">
+      <ellipse cx="200" cy="300" rx="170" ry="22" fill="#000" opacity=".08"/>
+      <!-- sandwich -->
+      <g transform="translate(205 120) rotate(8)">
+        <path d="M10 70 Q90 20 175 60 L170 82 Q90 50 14 92 Z" fill="#e7b46a"/>
+        <path d="M14 92 Q90 50 170 82 L172 96 Q92 66 16 108 Z" fill="#6cae5e"/>
+        <path d="M16 108 Q92 66 172 96 L170 110 Q92 84 18 122 Z" fill="#e3503a"/>
+        <path d="M18 122 Q92 84 170 110 L168 122 Q92 98 20 134 Z" fill="#f4d06a"/>
+        <path d="M20 134 Q92 98 168 122 L166 146 Q92 118 22 160 Z" fill="#d9a258"/>
+        <circle cx="60" cy="68" r="3" fill="#fff6e0"/><circle cx="95" cy="52" r="3" fill="#fff6e0"/><circle cx="130" cy="55" r="3" fill="#fff6e0"/>
+      </g>
+      <!-- bowl -->
+      <path d="M30 175 Q30 290 155 290 Q280 290 280 175 Z" fill="#d4472b"/>
+      <path d="M30 175 Q30 200 40 215 L270 215 Q280 200 280 175 Z" fill="#b93a22"/>
+      <path d="M70 240 h170" stroke="#f2b134" stroke-width="6" stroke-linecap="round" opacity=".8"/>
+      <!-- rice mound -->
+      <path d="M38 178 Q60 110 155 104 Q250 110 272 178 Z" fill="#fffaf0"/>
+      <g fill="#f1e6cf">
+        <ellipse cx="90" cy="160" rx="7" ry="3.5" transform="rotate(-20 90 160)"/>
+        <ellipse cx="120" cy="140" rx="7" ry="3.5" transform="rotate(15 120 140)"/>
+        <ellipse cx="160" cy="128" rx="7" ry="3.5" transform="rotate(-10 160 128)"/>
+        <ellipse cx="200" cy="145" rx="7" ry="3.5" transform="rotate(25 200 145)"/>
+        <ellipse cx="235" cy="165" rx="7" ry="3.5" transform="rotate(-15 235 165)"/>
+        <ellipse cx="140" cy="165" rx="7" ry="3.5" transform="rotate(5 140 165)"/>
+        <ellipse cx="185" cy="170" rx="7" ry="3.5" transform="rotate(-25 185 170)"/>
+      </g>
+      <!-- chickpeas -->
+      <g fill="#f2b134"><circle cx="110" cy="152" r="6"/><circle cx="172" cy="150" r="6"/><circle cx="215" cy="160" r="6"/><circle cx="150" cy="118" r="6"/></g>
+      <!-- steam -->
+      <g fill="none" stroke="#c9b8a8" stroke-width="5" stroke-linecap="round" opacity=".7">
+        <path d="M120 90 q-12 -18 0 -36 q12 -18 0 -36"/>
+        <path d="M160 82 q-12 -18 0 -36 q12 -18 0 -36"/>
+        <path d="M200 90 q-12 -18 0 -36 q12 -18 0 -36"/>
+      </g>
+    </svg>
   </header>
+</div>
 
-  <section>
-    <h2>Hakkımızda</h2>
-    <p>Bi Pilav Bi Sandviç, Üsküdar merkezde Mimar Sinan Mahallesi'nde 2019'dan beri hizmet veren bir büfedir.
-      Her gün taze pilav, sandviç, tost, gözleme ve kahvaltılık hazırlıyoruz.</p>
+<div class="wrap">
+  <section id="biz">
+    <div class="women">
+      <!-- illustration: two women -->
+      <svg viewBox="0 0 140 140" role="img" aria-label="Kadın işletmesi">
+        <circle cx="70" cy="70" r="68" fill="#fde3d6"/>
+        <circle cx="50" cy="56" r="16" fill="#8a5a44"/>
+        <path d="M30 50 Q50 24 70 50 Q66 34 50 32 Q34 34 30 50 Z" fill="#3b2418"/>
+        <path d="M18 118 Q22 82 50 80 Q78 82 82 118 Z" fill="#d4472b"/>
+        <circle cx="92" cy="60" r="16" fill="#c98c6a"/>
+        <path d="M74 60 Q72 34 92 34 Q112 34 110 60 Q108 46 92 44 Q78 46 74 60 Z" fill="#6b3b22"/>
+        <path d="M62 120 Q66 86 92 84 Q120 86 124 120 Z" fill="#f2b134"/>
+        <path d="M70 102 l4 -6 4 6 -4 4 z" fill="#fff"/>
+      </svg>
+      <div>
+        <span class="eyebrow">Hakkımızda</span>
+        <h2>Kadınların işlettiği bir mahalle büfesi</h2>
+        <p>Bi Pilav Bi Sandviç, 2019'dan beri Üsküdar Çarşı'da, Mimar Sinan Mahallesi'nde hizmet veriyor.
+          İşletmemizi kadınlar kuruyor, kadınlar yürütüyor; mutfakta da tezgâhta da.</p>
+        <p class="lead">Çarşıya alışverişe gelenlerin, işe yetişenlerin ve okul çıkışı uğrayanların hızlı ama özenli durağıyız.
+          Pilavımız her sabah yeniden pişer, sandviçlerimiz siparişle hazırlanır.</p>
+      </div>
+    </div>
   </section>
 
-  <section>
-    <h2>İletişim</h2>
-    <dl>
-      <dt>Adres</dt>
-      <dd>Mimar Sinan Mah., Tembel Hacı Mehmet Sk. No: 6/B, 34674 Üsküdar / İstanbul, Türkiye</dd>
-      <dt>Telefon</dt>
-      <dd><a href="tel:+905466964105">+90 546 696 41 05</a></dd>
-      <dt>Çalışma saatleri</dt>
-      <dd>Her gün 07:00 – 01:00</dd>
-      <dt>Instagram</dt>
-      <dd><a href="https://www.instagram.com/bipilavbisandvinc/">@bipilavbisandvinc</a></dd>
-    </dl>
+  <section id="menu">
+    <span class="eyebrow">Neler var?</span>
+    <h2>Tezgâhımızdan</h2>
+    <p class="lead">Menü gün içinde değişebilir; günün lezzetleri için uğrayın ya da arayın.</p>
+
+    <div class="menu">
+      <div class="dish">
+        <svg viewBox="0 0 84 84" aria-hidden="true">
+          <path d="M8 40 Q8 74 42 74 Q76 74 76 40 Z" fill="#d4472b"/>
+          <path d="M10 42 Q20 20 42 18 Q64 20 74 42 Z" fill="#fffaf0" stroke="#efe2c8"/>
+          <g fill="#f2b134"><circle cx="30" cy="34" r="3.5"/><circle cx="48" cy="30" r="3.5"/><circle cx="56" cy="38" r="3.5"/></g>
+        </svg>
+        <h3>Pilav</h3>
+        <p>Her sabah taze pişer</p>
+      </div>
+      <div class="dish">
+        <svg viewBox="0 0 84 84" aria-hidden="true">
+          <path d="M8 34 Q42 14 76 32 L74 40 Q42 24 10 42 Z" fill="#e7b46a"/>
+          <path d="M10 42 Q42 24 74 40 L74 46 Q42 32 10 50 Z" fill="#6cae5e"/>
+          <path d="M10 50 Q42 32 74 46 L74 52 Q42 40 10 56 Z" fill="#e3503a"/>
+          <path d="M10 56 Q42 40 74 52 L72 62 Q42 50 12 68 Z" fill="#d9a258"/>
+        </svg>
+        <h3>Sandviç</h3>
+        <p>Siparişle hazırlanır</p>
+      </div>
+      <div class="dish">
+        <svg viewBox="0 0 84 84" aria-hidden="true">
+          <rect x="14" y="22" width="56" height="44" rx="8" fill="#d9a258"/>
+          <rect x="18" y="26" width="48" height="36" rx="6" fill="#f0c27a"/>
+          <g stroke="#a86b2c" stroke-width="3" stroke-linecap="round"><path d="M24 34 l36 0"/><path d="M24 44 l36 0"/><path d="M24 54 l36 0"/></g>
+          <path d="M66 46 q6 2 6 8" stroke="#f2b134" stroke-width="4" fill="none" stroke-linecap="round"/>
+        </svg>
+        <h3>Tost</h3>
+        <p>Sıcak ve çıtır</p>
+      </div>
+      <div class="dish">
+        <svg viewBox="0 0 84 84" aria-hidden="true">
+          <path d="M10 56 Q12 22 42 20 Q72 22 74 56 Q42 68 10 56 Z" fill="#f3d39a"/>
+          <g fill="#c98b3e" opacity=".6"><circle cx="30" cy="40" r="4"/><circle cx="50" cy="34" r="3"/><circle cx="58" cy="48" r="4"/><circle cx="38" cy="52" r="3"/></g>
+          <path d="M10 56 Q42 68 74 56" stroke="#c98b3e" stroke-width="3" fill="none"/>
+        </svg>
+        <h3>Gözleme</h3>
+        <p>Sıcak sıcak, tavadan</p>
+      </div>
+      <div class="dish">
+        <svg viewBox="0 0 84 84" aria-hidden="true">
+          <circle cx="42" cy="44" r="32" fill="#fff" stroke="#efe2c8" stroke-width="3"/>
+          <circle cx="34" cy="40" r="10" fill="#fffaf0" stroke="#efe2c8"/><circle cx="34" cy="40" r="5" fill="#f2b134"/>
+          <circle cx="54" cy="36" r="5" fill="#3b2418"/><circle cx="58" cy="48" r="5" fill="#4f8a4b"/>
+          <path d="M30 56 h22" stroke="#e3503a" stroke-width="6" stroke-linecap="round"/>
+        </svg>
+        <h3>Kahvaltı</h3>
+        <p>Sabah 07:00'den itibaren</p>
+      </div>
+    </div>
   </section>
 
-  <section>
-    <h2>Uygulamalarımız</h2>
-    <ul>
-      <li><strong>MedGuard</strong> — ilaç listenizi tutan ve dozlarınızı hatırlatan Android uygulaması.
-        <a href="https://gist.github.com/Zkyshawnm/9fff7fc9e4d1631cb24729d5978dd2e9">Gizlilik politikası</a></li>
-    </ul>
-  </section>
+  <section id="iletisim">
+    <span class="eyebrow">Bize uğrayın</span>
+    <h2>Üsküdar Çarşı'dayız</h2>
+    <p class="lead">Üsküdar Meydanı ve Marmaray'a yürüme mesafesinde, çarşının içinde.</p>
 
-  <section lang="en">
-    <h2>English</h2>
-    <p>Bi Pilav Bi Sandviç is a kiosk in central Üsküdar, Istanbul, serving rice, sandwiches, toasts and breakfast since 2019.
-      Address: Mimar Sinan Mah., Tembel Hacı Mehmet Sk. No: 6/B, 34674 Üsküdar / Istanbul, Türkiye.
-      Phone: +90 546 696 41 05.</p>
+    <div class="visit">
+      <div class="card">
+        <dl>
+          <dt>Adres</dt>
+          <dd>Mimar Sinan Mah., Tembel Hacı Mehmet Sk. No: 6/B<br>34674 Üsküdar / İstanbul</dd>
+          <dt>Telefon</dt>
+          <dd><a href="tel:+905466964105">+90 546 696 41 05</a></dd>
+          <dt>Çalışma saatleri</dt>
+          <dd>Her gün 07:00 – 01:00</dd>
+          <dt>Instagram</dt>
+          <dd><a href="https://www.instagram.com/bipilavbisandvinc/">@bipilavbisandvinc</a></dd>
+        </dl>
+      </div>
+      <div class="map">
+        <iframe title="Bi Pilav Bi Sandviç haritası" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          src="https://maps.google.com/maps?q=Bi%20Pilav%20Bi%20Sandvi%C3%A7%2C%20Tembel%20Hac%C4%B1%20Mehmet%20Sk.%206%2FB%2C%20%C3%9Csk%C3%BCdar%2C%20%C4%B0stanbul&z=17&output=embed"></iframe>
+      </div>
+    </div>
   </section>
+</div>
 
-  <footer>© 2019–2026 Bi Pilav Bi Sandviç · Üsküdar / İstanbul</footer>
-</main>
+<footer>
+  <div class="wrap">
+    <span>© 2019–2026 Bi Pilav Bi Sandviç · Üsküdar Çarşı, İstanbul</span>
+    <span lang="en">Women-run kiosk in Üsküdar, Istanbul — since 2019</span>
+  </div>
+</footer>
 </body>
 </html>

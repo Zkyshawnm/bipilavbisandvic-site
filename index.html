@@ -10,15 +10,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #f6eee3; --paper: #fffaf3; --ink: #3a2417; --muted: #7d6450;
-      --tomato: #8b5a2b; --saffron: #d9a04a; --leaf: #5f7d45; --rose: #c98f6b;
-      --line: #e6d6c2; --shadow: 0 10px 30px rgba(70, 40, 15, .10);
+      --bg: #fffaf2; --paper: #ffffff; --ink: #2d1b12; --muted: #7a6455;
+      --tomato: #d9480f; --saffron: #f4a825; --leaf: #3f8f4a; --rose: #f08c6c;
+      --line: #f4e4cf; --shadow: 0 12px 32px rgba(200, 90, 20, .10);
     }
     @media (prefers-color-scheme: dark) {
       :root:not([data-theme="light"]) {
-        --bg: #1e140d; --paper: #2a1c13; --ink: #f4e8da; --muted: #c4ab93;
-        --tomato: #d9a066; --saffron: #e8b766; --leaf: #9bb57f; --rose: #d9a98a;
-        --line: #3f2c1f; --shadow: 0 10px 30px rgba(0, 0, 0, .40);
+        --bg: #1a120d; --paper: #251912; --ink: #fbefe3; --muted: #cdb4a0;
+        --tomato: #ff7a3d; --saffron: #ffc145; --leaf: #74c27f; --rose: #ff9f80;
+        --line: #3a271c; --shadow: 0 12px 32px rgba(0, 0, 0, .40);
       }
     }
     * { box-sizing: border-box; }
@@ -48,7 +48,7 @@
     .btn { display: inline-block; padding: 12px 22px; border-radius: 999px; font-weight: 600; text-decoration: none; }
     .btn.primary { background: var(--tomato); color: #fff; }
     .btn.ghost { border: 2px solid var(--ink); color: var(--ink); }
-    .hero-art { width: 100%; height: auto; filter: drop-shadow(0 18px 30px rgba(120, 60, 20, .18)); }
+    .hero-art { background: radial-gradient(circle at 50% 55%, color-mix(in srgb, var(--saffron) 35%, transparent), transparent 65%); border-radius: 50%; width: 100%; height: auto; filter: drop-shadow(0 18px 30px rgba(120, 60, 20, .18)); }
     @media (max-width: 760px) { .hero { grid-template-columns: 1fr; padding-top: 8px; } .hero-art { max-width: 360px; margin: 0 auto; display: block; } }
 
     /* sections */
@@ -121,8 +121,8 @@
         <circle cx="60" cy="68" r="3" fill="#fff6e0"/><circle cx="95" cy="52" r="3" fill="#fff6e0"/><circle cx="130" cy="55" r="3" fill="#fff6e0"/>
       </g>
       <!-- bowl -->
-      <path d="M30 175 Q30 290 155 290 Q280 290 280 175 Z" fill="#9a5f33"/>
-      <path d="M30 175 Q30 200 40 215 L270 215 Q280 200 280 175 Z" fill="#7d4a26"/>
+      <path d="M30 175 Q30 290 155 290 Q280 290 280 175 Z" fill="#e0562a"/>
+      <path d="M30 175 Q30 200 40 215 L270 215 Q280 200 280 175 Z" fill="#c2410c"/>
       <path d="M70 240 h170" stroke="#f2b134" stroke-width="6" stroke-linecap="round" opacity=".8"/>
       <!-- rice mound -->
       <path d="M38 178 Q60 110 155 104 Q250 110 272 178 Z" fill="#fffaf0"/>
@@ -225,6 +225,30 @@
         </svg>
         <h3>Kahvaltı</h3>
         <p>Sabah 07:00'den itibaren</p>
+      </div>
+      <div class="dish">
+        <svg viewBox="0 0 84 84" aria-hidden="true">
+          <path d="M60 46 L80 40" stroke="#2d1b12" stroke-width="6" stroke-linecap="round"/>
+          <circle cx="38" cy="46" r="28" fill="#2d1b12"/>
+          <circle cx="38" cy="46" r="23" fill="#e2552c"/>
+          <g fill="#fff3c4"><circle cx="30" cy="40" r="6"/><circle cx="46" cy="50" r="5"/></g>
+          <g fill="#f4a825"><circle cx="30" cy="40" r="2.5"/><circle cx="46" cy="50" r="2"/></g>
+          <g fill="#3f8f4a"><rect x="40" y="34" width="8" height="3" rx="1.5"/><rect x="24" y="54" width="8" height="3" rx="1.5"/></g>
+        </svg>
+        <h3>Menemen</h3>
+        <p>Sahanda, sıcak ekmekle</p>
+      </div>
+      <div class="dish">
+        <svg viewBox="0 0 84 84" aria-hidden="true">
+          <ellipse cx="30" cy="70" rx="20" ry="5" fill="#d9480f"/>
+          <path d="M20 26 Q16 44 22 54 Q24 66 30 66 Q36 66 38 54 Q44 44 40 26 Z" fill="#fde7d6" stroke="#e6cbb3" stroke-width="2"/>
+          <path d="M21 36 Q19 46 23 54 Q25 64 30 64 Q35 64 37 54 Q41 46 39 36 Z" fill="#b5401a"/>
+          <path d="M48 52 h30 l-4 14 h-22 Z" fill="#fff" stroke="#e6cbb3" stroke-width="2"/>
+          <ellipse cx="63" cy="52" rx="15" ry="3.5" fill="#5a3418"/>
+          <ellipse cx="63" cy="68" rx="20" ry="4" fill="#fff" stroke="#e6cbb3" stroke-width="2"/>
+        </svg>
+        <h3>Çay &amp; Türk kahvesi</h3>
+        <p>İnce belli bardakta çay, köpüklü kahve</p>
       </div>
     </div>
   </section>

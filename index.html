@@ -66,9 +66,9 @@
     /* women-run */
     .women { background: var(--cream); border-radius: 28px; padding: 40px;
       display: grid; grid-template-columns: auto 1fr; gap: 34px; align-items: center; }
-    .women svg { width: 170px; height: 170px; }
+    .women .portrait { width: 280px; height: auto; display: block; filter: drop-shadow(0 16px 26px rgba(120, 20, 20, .18)); }
     .women p { margin: 0 0 12px; }
-    @media (max-width: 640px) { .women { grid-template-columns: 1fr; padding: 28px 22px; text-align: center; } .women svg { margin: 0 auto; } }
+    @media (max-width: 640px) { .women { grid-template-columns: 1fr; padding: 28px 22px; text-align: center; } .women .portrait { margin: 0 auto; width: min(260px, 100%); } }
 
     /* menu */
     .menu-board { background: var(--red); border-radius: 30px; padding: 28px; margin-top: 30px;
@@ -192,19 +192,60 @@
 <div class="wrap">
   <section id="biz">
     <div class="women">
-      <svg viewBox="0 0 170 170" role="img" aria-label="Tezgâhta çalışan iki kadın">
-        <circle cx="85" cy="85" r="82" fill="#ffd9d4"/>
-        <circle cx="60" cy="72" r="18" fill="#e0a782"/>
-        <path d="M38 76 Q36 46 60 44 Q84 46 82 76 Q80 58 60 56 Q40 58 38 76 Z" fill="#e0261f"/>
-        <path d="M38 76 Q44 94 60 94 Q76 94 82 76 L84 88 Q72 104 60 104 Q48 104 36 88 Z" fill="#e0261f"/>
-        <path d="M24 150 Q28 104 60 102 Q92 104 96 150 Z" fill="#141010"/>
-        <rect x="46" y="112" width="28" height="34" rx="4" fill="#fff"/>
-        <circle cx="112" cy="70" r="17" fill="#c98c6a"/>
-        <path d="M94 70 Q92 44 112 44 Q132 44 130 70 Q128 54 112 53 Q98 54 94 70 Z" fill="#3b2418"/>
-        <path d="M128 64 Q140 80 132 98" stroke="#3b2418" stroke-width="7" fill="none" stroke-linecap="round"/>
-        <path d="M80 150 Q84 100 112 98 Q142 100 146 150 Z" fill="#f2b134"/>
-        <rect x="14" y="136" width="142" height="20" rx="6" fill="#ffffff" stroke="#f3ded3" stroke-width="2"/>
-        <circle cx="128" cy="130" r="8" fill="#fffaf0" stroke="#efe2c8"/>
+      <svg class="portrait" viewBox="0 0 300 360" role="img" aria-label="Çiçekli başörtülü, önlüklü, elinde çay bardağıyla gülümseyen bir kadın çizimi">
+        <defs>
+          <clipPath id="scarf"><path d="M92 128 Q86 54 150 46 Q214 54 208 128 L214 176 Q198 214 150 220 Q102 214 86 176 Z"/></clipPath>
+        </defs>
+        <rect width="300" height="360" rx="28" fill="#ffe1d8"/>
+        <!-- fairy lights -->
+        <path d="M0 40 Q75 64 150 40 T300 40" stroke="#e7cfa8" stroke-width="2" fill="none"/>
+        <g fill="#ffd36b"><circle cx="30" cy="48" r="4"/><circle cx="70" cy="56" r="4"/><circle cx="110" cy="52" r="4"/><circle cx="190" cy="50" r="4"/><circle cx="230" cy="56" r="4"/><circle cx="270" cy="48" r="4"/></g>
+        <!-- teapots on the right -->
+        <g transform="translate(222 228)">
+          <rect x="-6" y="62" width="90" height="70" rx="6" fill="#b07a45"/>
+          <path d="M6 62 q0 -46 30 -46 q30 0 30 46 z" fill="#d9dde2" stroke="#aeb5bd" stroke-width="2"/>
+          <rect x="26" y="8" width="20" height="8" rx="3" fill="#aeb5bd"/>
+          <path d="M6 34 q-16 4 -12 24" stroke="#2b2222" stroke-width="6" fill="none" stroke-linecap="round"/>
+        </g>
+        <!-- body: linen shirt -->
+        <path d="M54 360 Q58 250 150 238 Q242 250 246 360 Z" fill="#f6efe2"/>
+        <path d="M150 240 L150 360" stroke="#e3d8c6" stroke-width="3"/>
+        <g fill="#cfc3ae"><circle cx="150" cy="268" r="3"/><circle cx="150" cy="296" r="3"/><circle cx="150" cy="324" r="3"/></g>
+        <!-- striped apron -->
+        <path d="M92 300 L208 300 L218 360 L82 360 Z" fill="#1f2230"/>
+        <g stroke="#3a3f55" stroke-width="3"><path d="M102 300 L96 360"/><path d="M122 300 L120 360"/><path d="M142 300 L142 360"/><path d="M162 300 L164 360"/><path d="M182 300 L186 360"/><path d="M200 300 L206 360"/></g>
+        <path d="M88 300 h124" stroke="#1f2230" stroke-width="8" stroke-linecap="round"/>
+        <!-- arm holding tea -->
+        <path d="M206 262 Q236 284 222 318 Q214 330 196 324" stroke="#f6efe2" stroke-width="30" fill="none" stroke-linecap="round"/>
+        <circle cx="196" cy="320" r="13" fill="#e8b48e"/>
+        <path d="M186 288 q-3 14 2 28 h16 q5 -14 2 -28 z" fill="#b5401a" stroke="#fff" stroke-width="2.5"/>
+        <ellipse cx="196" cy="320" rx="16" ry="4" fill="#ffffff" stroke="#e6cbb3"/>
+        <!-- scarf (back drape) -->
+        <path d="M86 150 Q70 220 108 246 Q150 262 192 246 Q230 220 214 150 Z" fill="#7dc6c9"/>
+        <!-- face -->
+        <ellipse cx="150" cy="140" rx="46" ry="54" fill="#eab896"/>
+        <!-- scarf (front, floral) -->
+        <g clip-path="url(#scarf)">
+          <rect x="80" y="40" width="140" height="190" fill="#bfe7e4"/>
+          <circle cx="104" cy="70" r="22" fill="#2f6f3a"/><circle cx="196" cy="74" r="20" fill="#7a3fa0"/>
+          <circle cx="92" cy="140" r="18" fill="#e55a9a"/><circle cx="208" cy="150" r="18" fill="#3a8f4a"/>
+          <circle cx="150" cy="52" r="16" fill="#f2b134"/><circle cx="120" cy="206" r="16" fill="#6b3fa0"/><circle cx="186" cy="204" r="16" fill="#e55a9a"/>
+          <g fill="#ffffff" opacity=".7"><circle cx="104" cy="70" r="6"/><circle cx="196" cy="74" r="6"/><circle cx="92" cy="140" r="5"/><circle cx="208" cy="150" r="5"/></g>
+        </g>
+        <!-- face window inside the scarf -->
+        <path d="M110 112 Q112 84 150 82 Q188 84 190 112 L192 152 Q186 192 150 196 Q114 192 108 152 Z" fill="#eab896"/>
+        <path d="M110 100 Q150 80 190 100" stroke="#1f2230" stroke-width="7" fill="none" stroke-linecap="round"/>
+        <!-- features -->
+        <path d="M124 128 q8 -6 16 0" stroke="#5a3626" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path d="M160 128 q8 -6 16 0" stroke="#5a3626" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path d="M126 138 q6 5 12 0" stroke="#2b1a14" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+        <path d="M162 138 q6 5 12 0" stroke="#2b1a14" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+        <path d="M150 142 q-4 14 2 18" stroke="#c98d6b" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path d="M132 168 Q150 184 168 168" stroke="#a63a3a" stroke-width="5" fill="none" stroke-linecap="round"/>
+        <g fill="#f29b8e" opacity=".55"><ellipse cx="122" cy="158" rx="9" ry="5"/><ellipse cx="178" cy="158" rx="9" ry="5"/></g>
+        <!-- scarf knot under chin -->
+        <path d="M128 196 Q150 214 172 196 L180 226 Q150 240 120 226 Z" fill="#6b3fa0"/>
+        <path d="M140 222 L132 252 L150 240 L168 252 L160 222 Z" fill="#e55a9a"/>
       </svg>
       <div>
         <span class="eyebrow">Hakkımızda</span>
